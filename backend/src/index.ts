@@ -3,7 +3,7 @@ import { Hono } from "hono";
 const app = new Hono();
 
 app.get("/", (c) => {
-  return c.text("Hello Hono!");
+  return c.text("Hello Hono,,,,!");
 });
 
 app.post("/api/v1/user/signup", (c) => {
