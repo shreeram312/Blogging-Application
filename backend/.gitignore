@@ -22,6 +22,7 @@ node_modules/
 .env.production
 .dev.vars
 
+
 # logs
 logs/
 *.log
