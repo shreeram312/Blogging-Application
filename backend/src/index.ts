@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
 import { decode, sign, verify } from "hono/jwt";
+
 const app = new Hono<{
   Bindings: {
     DATABASE_URL: string;
@@ -26,6 +27,7 @@ app.post("/api/v1/user/signup", async (c) => {
       password: body.password,
     },
   });
+  console.log(user);
 
   if (!user) {
     return c.json({
@@ -33,7 +35,7 @@ app.post("/api/v1/user/signup", async (c) => {
     });
   }
 
-  const token = sign({ id: user.id }, c.env.SECRET);
+  const token = await sign({ id: user.id }, c.env.SECRET);
 
   return c.json({
     jwt: token,
