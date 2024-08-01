@@ -59,7 +59,7 @@ blogRouter.post("/", async (c) => {
   });
 
   return c.json({
-    message: blog.id,
+    message: blog,
   });
 });
 
@@ -94,31 +94,34 @@ blogRouter.get("/:id", async (c) => {
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
 
-  const body = await c.req.json();
+  try {
+    const id = c.req.param("id");
 
-  const blog = await prisma.blog.findUnique({
-    where: {
-      id: c.req.param("id"),
-    },
-  });
+    const blog = await prisma.blog.findUnique({
+      where: { id },
+    });
+    console.log(blog);
 
-  return c.json({
-    message: blog,
-  });
+    if (!blog) {
+      return c.json({ message: "Blog not found" }, { status: 404 });
+    }
+
+    return c.json(blog);
+  } catch (e) {
+    // @ts-ignore
+    console.log(e);
+  }
 });
+
 //.................................................................................
 
 //add  pagination
-blogRouter.get("/bulk", async (c) => {
+blogRouter.get("/bulk/new", async (c) => {
   const prisma = new PrismaClient({
-    datasourceUrl: c.env.DATABASE_URL,
+    datasourceUrl: c.env?.DATABASE_URL,
   }).$extends(withAccelerate());
 
-  const body = await c.req.json();
+  const posts = await prisma.blog.findMany({});
 
-  const blogs = await prisma.blog.findMany();
-
-  return c.json({
-    message: blogs,
-  });
+  return c.json(posts);
 });
