@@ -8,6 +8,7 @@
     "@hono/node-server": "^1.12.0",
     "@prisma/client": "^5.17.0",
     "@prisma/extension-accelerate": "^1.1.0",
+    "@shreeram312/medium-common": "^1.0.0",
     "bcrypt": "^5.1.1",
     "hono": "^4.5.1",
     "json-web-token": "^3.2.0",

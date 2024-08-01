@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
+import { createblogInput, updateblogInput } from "@shreeram312/medium-common";
 import { Hono } from "hono";
 import { verify } from "hono/jwt";
 
@@ -14,6 +15,7 @@ export const blogRouter = new Hono<{
 }>();
 
 //....................................................................................
+// Middleware.js
 
 blogRouter.use("/*", async (c, next) => {
   //get the header
@@ -47,6 +49,14 @@ blogRouter.post("/", async (c) => {
   }).$extends(withAccelerate());
 
   const body = await c.req.json();
+
+  const { success } = createblogInput.safeParse(body);
+
+  if (!success) {
+    return c.json({
+      message: "Inputs are Incorrect",
+    });
+  }
   const authorId = c.get("userId");
 
   const blog = await prisma.blog.create({
@@ -71,6 +81,14 @@ blogRouter.put("/", async (c) => {
   }).$extends(withAccelerate());
 
   const body = await c.req.json();
+
+  const { success } = updateblogInput.safeParse(body);
+
+  if (!success) {
+    return c.json({
+      message: "Inputs are Incorrect",
+    });
+  }
 
   const blog = await prisma.blog.update({
     where: {
