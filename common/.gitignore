@@ -1,0 +1,65 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build output
+dist/
+build/
+
+node_modules/
+.env
+dist/
+*.log
+
+# Dependency directories
+bower_components/
+
+# IDE or editor settings
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+*.DS_Store
+
+# Environment variables
+.env
+.env.*.local
+
+# Logs
+*.log
+
+# OS-specific files
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Other common files to ignore
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.pem
+*.key
+
+# Compiled source
+*.class
+*.pyc
+*.pyo
+*.pyd
+*.rbc
+
+# Package distribution
+*.egg
+*.egg-info/
+dist/
+build/
