@@ -7,6 +7,11 @@ yarn-error.log
 dist/
 build/
 
+node_modules/
+.env
+dist/
+*.log
+
 # Dependency directories
 bower_components/
 
