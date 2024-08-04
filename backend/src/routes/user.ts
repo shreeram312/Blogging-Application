@@ -19,12 +19,6 @@ userRouter.post("/signup", async (c) => {
   const body = await c.req.json();
   const { success } = signupInput.safeParse(body);
 
-  if (!success) {
-    return c.json({
-      message: "Inputs are Incorrect",
-    });
-  }
-
   const user = await prisma.user.create({
     data: {
       email: body.email,
@@ -35,7 +29,7 @@ userRouter.post("/signup", async (c) => {
 
   if (!user) {
     return c.json({
-      msg: "User Not found",
+      msg: user,
     });
   }
 
