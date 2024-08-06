@@ -2,8 +2,12 @@ import React, { useState, useRef, MouseEvent } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import "../App.css";
 
+// Ensure APIKEY is defined
+//@ts-ignore
+const apiKey = import.meta.env.VITE_API_KEY || "";
+
 // Initialize Google Generative AI with API Key
-const genAI = new GoogleGenerativeAI(process.env.KEY as string);
+const genAI = new GoogleGenerativeAI(apiKey);
 
 const ChatWidget = () => {
   // State to manage whether the chat widget is open or closed

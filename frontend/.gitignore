@@ -13,6 +13,8 @@ dist-ssr
 *.local
 
 .env
+# Config files
+./config.ts   
 
 # Editor directories and files
 .vscode/*
@@ -24,3 +26,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.gitignore
