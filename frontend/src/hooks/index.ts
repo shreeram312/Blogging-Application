@@ -14,8 +14,9 @@ export interface Blog {
 export const useBlog = ({ id }: { id: string }) => {
   const [loading, setLoading] = useState(true);
   const [blog, setBlog] = useState<Blog>();
-
+  // AIzaSyA6UqE8EMERDIO8dxpzY5nidU6GsRu4pLA;
   useEffect(() => {
+    console.log("Fetching blog with ID:", id);
     axios
       .get(`${BACKEND_URL}/api/v1/blog/${id}`, {
         headers: {
@@ -23,7 +24,8 @@ export const useBlog = ({ id }: { id: string }) => {
         },
       })
       .then((response) => {
-        setBlog(response.data.blogs);
+        console.log("Blog data:", response.data);
+        setBlog(response.data);
         setLoading(false);
       });
   }, [id]);

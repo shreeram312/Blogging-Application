@@ -1,5 +1,6 @@
 import { Appbar } from "../components/Appbar";
 import { BlogCard } from "../components/BlogCard";
+import ChatWidget from "../components/ChatWidget";
 import { useBlogs } from "../hooks";
 
 export const Blogs = () => {
@@ -17,6 +18,7 @@ export const Blogs = () => {
             publishedDate={"2nd Feb 2024"}
           />
         ))}
+        <ChatWidget />
       </div>
     </>
   );
