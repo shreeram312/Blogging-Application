@@ -1,5 +1,3 @@
-import React from "react";
-
 export const BlogSkeleton = () => {
   return (
     <div className="w-full md:w-2/3 px-4 p-6 border border-gray-200 bg-white shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300 ease-in-out mb-6">
