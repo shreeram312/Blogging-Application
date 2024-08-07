@@ -108,3 +108,15 @@ button {
 button:hover {
   background-color: #357abd;
 }
+
+.draft-editor-wrapper {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.draft-editor {
+  padding: 10px;
+  min-height: 200px;
+  max-height: 400px; /* Optional: Limit height */
+  overflow-y: auto; /* Optional: Enable scrolling if needed */
+}

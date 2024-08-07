@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => {
   return {
     define: {
       "process.env.SOME_KEY": JSON.stringify(env.SOME_KEY),
+      global: "window",
     },
     plugins: [react()],
   };

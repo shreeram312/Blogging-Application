@@ -57,7 +57,10 @@ export const Appbar = () => {
                 Profile
               </Link>
               <Link
-                to="/logout"
+                to="/signin"
+                onClick={() => {
+                  localStorage.removeItem("token");
+                }}
                 className="block px-4 py-2 text-gray-300 hover:bg-gray-600"
               >
                 Log Out
@@ -92,7 +95,10 @@ export const Appbar = () => {
             Profile
           </Link>
           <Link
-            to="/logout"
+            onClick={() => {
+              localStorage.removeItem("token");
+            }}
+            to="/signin"
             className="text-gray-300 px-4 py-2 hover:bg-gray-600"
           >
             Log Out

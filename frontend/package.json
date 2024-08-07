@@ -13,6 +13,7 @@
     "@google/generative-ai": "^0.16.0",
     "@shreeram312/medium-common": "^1.0.0",
     "axios": "^1.7.3",
+    "draft-js": "^0.11.7",
     "openai": "^4.54.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -20,6 +21,7 @@
     "react-router-dom": "^6.26.0"
   },
   "devDependencies": {
+    "@types/draft-js": "^0.11.18",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
@@ -30,9 +32,9 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "postcss": "^8.4.40",
+    "react-error-overlay": "6.0.9",
     "tailwindcss": "^3.4.7",
     "typescript": "^5.2.2",
-    "vite": "^5.3.4",
-    "react-error-overlay": "6.0.9"
+    "vite": "^5.3.4"
   }
 }
