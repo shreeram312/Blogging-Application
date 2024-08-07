@@ -14,7 +14,7 @@ dist-ssr
 
 .env
 # Config files
-./config.ts   
+ 
 
 # Editor directories and files
 .vscode/*
