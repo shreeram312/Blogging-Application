@@ -28,7 +28,7 @@ export const useBlog = ({ id }: { id: string }) => {
         setBlog(response.data);
         setLoading(false);
       });
-  }, [id]);
+  }, [id, blog]);
 
   return {
     loading,
