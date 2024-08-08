@@ -13,7 +13,7 @@ export const Blogs = () => {
         <Appbar />
         <div className="flex flex-col md:flex-row my-10">
           <div className="w-full md:w-2/3 px-4">
-            {[...Array(blogs.length + 1)].map((_, index) => (
+            {[...Array(blogs.length + 2)].map((_, index) => (
               <BlogSkeleton key={index} />
             ))}
           </div>
