@@ -33,11 +33,13 @@ blogRouter.use("/*", async (c, next) => {
   const token = jwt.split(" ")[1];
 
   const payload = await verify(token, c.env.SECRET);
+  console.log(payload);
   if (!payload) {
     c.status(401);
     return c.json({ error: "unauthorized" });
   }
   //@ts-ignore
+
   c.set("userId", payload.id);
   await next();
 });
@@ -58,6 +60,7 @@ blogRouter.post("/", async (c) => {
     });
   }
   const authorId = c.get("userId");
+  console.log(authorId);
 
   const blog = await prisma.blog.create({
     data: {
@@ -148,7 +151,11 @@ blogRouter.get("/bulk/new", async (c) => {
     datasourceUrl: c.env?.DATABASE_URL,
   }).$extends(withAccelerate());
 
+  const authorId = c.get("userId");
   const blogs = await prisma.blog.findMany({
+    where: {
+      authorId,
+    },
     select: {
       content: true,
       title: true,
