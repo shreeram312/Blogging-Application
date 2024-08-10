@@ -49,13 +49,15 @@ const ChatWidget = () => {
       });
 
       // Pass the user's input directly to the model
+      setInput(" ");
       const result = await model.generateContent(input);
+      console.log(result.response.text());
 
       const botMessage = result.response.text();
       // Add the bot's message to the chat
+
       setMessages([...messages, `You: ${input}`, `ChatGPT: ${botMessage}`]);
       // Clear the input field
-      setInput(" ");
     } catch (error: any) {
       console.error(
         "Error sending message:",
