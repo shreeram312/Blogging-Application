@@ -4,8 +4,7 @@ import { Signin } from "./pages/Signin";
 import { Blog } from "./pages/Blog";
 import { Blogs } from "./pages/Blogs";
 import { Publish } from "./pages/Publish";
-// Import the error page
-import { ProtectedRoute } from "./components/ProtectedRoute"; // Import the ProtectedRoute
+import { ProtectedRoute } from "./components/ProtectedRoute";
 import { ErrorPage } from "./pages/ErrorPage";
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
-        <Route path="/error" element={<ErrorPage />} /> {/* Error page route */}
+        <Route path="/error" element={<ErrorPage />} />
         <Route
           path="/blog/:id"
           element={<ProtectedRoute element={<Blog />} />}

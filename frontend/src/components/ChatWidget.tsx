@@ -10,21 +10,18 @@ const apiKey = import.meta.env.VITE_API_KEY || "";
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const ChatWidget = () => {
-  // State to manage whether the chat widget is open or closed
   const [isOpen, setIsOpen] = useState(false);
-  // State to keep track of the messages in the chat
+
   const [messages, setMessages] = useState<string[]>([]);
-  // State for the current input text
+
   const [input, setInput] = useState("");
   // Ref for the chat box element
   const chatBoxRef = useRef<HTMLDivElement>(null);
 
-  // Toggle the chat widget's open/close state
   const toggleChat = () => {
     setIsOpen(!isOpen);
   };
 
-  // Handle input change events
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
@@ -33,10 +30,8 @@ const ChatWidget = () => {
   const handleSendMessage = async () => {
     if (input.trim() === "") return;
 
-    // Add the user's message to the chat
     setMessages([...messages, `You: ${input}`]);
 
-    // Call Google Generative AI API
     try {
       const model = genAI.getGenerativeModel({
         model: "gemini-1.5-pro",
@@ -48,13 +43,11 @@ const ChatWidget = () => {
         ],
       });
 
-      // Pass the user's input directly to the model
       setInput(" ");
       const result = await model.generateContent(input);
       console.log(result.response.text());
 
       const botMessage = result.response.text();
-      // Add the bot's message to the chat
 
       setMessages([...messages, `You: ${input}`, `ChatGPT: ${botMessage}`]);
       // Clear the input field
@@ -73,7 +66,6 @@ const ChatWidget = () => {
     }
   };
 
-  // Prevent closing the chat widget when clicking inside the chat box
   const handleChatBoxClick = (event: MouseEvent) => {
     event.stopPropagation();
   };
@@ -101,7 +93,7 @@ const ChatWidget = () => {
               type="text"
               value={input}
               onChange={handleInputChange}
-              onKeyPress={handleKeyPress} // Handle enter key press
+              onKeyPress={handleKeyPress}
               placeholder="Type your message..."
             />
             <button onClick={handleSendMessage}>Send</button>
