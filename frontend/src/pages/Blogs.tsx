@@ -1,6 +1,7 @@
 import { Appbar } from "../components/Appbar";
 import { BlogCard } from "../components/BlogCard";
 import { BlogSkeleton } from "../components/BlogSkeleton";
+import ChatWidget from "../components/ChatWidget";
 
 import { useBlogs } from "../hooks";
 

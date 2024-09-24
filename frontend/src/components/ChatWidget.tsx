@@ -49,7 +49,7 @@ const ChatWidget = () => {
 
       const botMessage = result.response.text();
 
-      setMessages([...messages, `You: ${input}`, `ChatGPT: ${botMessage}`]);
+      setMessages([...messages, `You: ${input}`, `Gemini: ${botMessage}`]);
       // Clear the input field
     } catch (error: any) {
       console.error(
